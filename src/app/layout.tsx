@@ -1,16 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from 'next-themes'
+import Menu from "@/components/Menu";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "next-project-site",
@@ -23,9 +16,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+    <html suppressHydrationWarning lang="en">
+      <body
+        className="antialiased"
+      >
+        <ThemeProvider defaultTheme="system">
+        <Menu />
+          <div className="flex flex-col justify-between mt-12 sm:mt-16 md:mt-24 lg:mt-32 px-8 relative">
+            <main className="max-w-[60ch] mx-auto w-full space-y-6 flex-grow mb-8 mt-8 md:mt-6 lg:-mt-2 xl:-mt-6">
+              {children}
+            </main>
+          </div>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

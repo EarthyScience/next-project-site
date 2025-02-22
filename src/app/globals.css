@@ -3,13 +3,41 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --background-funding: #151617;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Apply Light Theme Explicitly */
+[data-theme='light'] {
+  --background: #ffffff;
+  --foreground: #171717;
+  --background-funding: #d8dce0;
+    /* Navbar */
+    --navbar-bg: white;
+    --navbar-border: #e5e7eb;
+    --link-color: #111827;
+    --secondary-link-color: #4b5563;
+    --link-hover: #1f2937;
+    /* Toggle */
+    --toggle-bg: rgba(0, 0, 0, 0.03);
+    --toggle-hover: rgba(0, 0, 0, 0.05);
+    --toggle-active: black; /* Ensures icon is visible in light mode */
+    --toggle-shadow: rgba(0, 0, 0, 0.1);
+}
+[data-theme='dark'] {
+  --background: #000000;
+  --foreground: white;
+  --background-funding: #151617;
+    /* Navbar */
+    --navbar-bg: #0d0e0e;
+    --navbar-border: #181a1c;
+    --link-color: #d1d5db;
+    --secondary-link-color: #9ca3af;
+    --link-hover: #ffffff;
+    /* Toggle */
+    --toggle-bg: rgba(255, 255, 255, 0.08);
+    --toggle-hover: rgba(255, 255, 255, 0.1);
+    --toggle-active: white; /* Ensures icon is visible in dark mode */
+    --toggle-shadow: rgba(0, 0, 0, 0.3);
 }
 
 html,
@@ -26,19 +54,106 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --background-funding: #151617;
   }
+  /* .logo {
+    filter: invert();
+  } */
+}
+
+/* Theme Switcher Container */
+.theme-switcher {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+  position: absolute;
+  background-color: var(--toggle-bg);
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+}
+
+/* Dropdown Items */
+.dropdown-content button {
+  color: var(--secondary-link-color);
+  padding: 4px;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  background-color: var(--toggle-hover);
+  color: var(--link-hover);
+  border-radius: 8px;
+}
+
+/* Show the dropdown on hover (large screens) */
+.theme-switcher:hover .dropdown-content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0s;
+}
+/* Active state of the theme switcher icon */
+.theme-switch.active {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-switcher svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Small screen: Always show buttons and center them */
+@media (max-width: 600px) {
+  .dropdown-content {
+    display: flex !important;
+    position: static !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin-bottom: 8px !important;
+    opacity: 1 !important; /* Show immediately on small screens */
+    transform: translateY(0) !important; /* Prevent dropdown from sliding */
+    visibility: visible !important; /* Ensure it's visible */
+    transition: none !important;
+  }
+
+  .theme-switcher {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Show footer-theme-switcher on mobile */
+  .footer-theme-switcher {
+    display: flex !important;
+    margin-top: 8px !important;
+  }
+}
+
+/* Default behavior: Hide footer-theme-switcher on larger screens */
+.footer-theme-switcher {
+  display: none;
 }
