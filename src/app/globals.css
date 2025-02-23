@@ -22,7 +22,7 @@
   --foreground: #171717;
   --background-funding: #d8dce0;
   /* Navbar */
-  --navbar-bg: white;
+  --navbar-bg: rgb(255, 255, 255, 0.9);
   --navbar-border: #e5e7eb;
   --link-color: #111827;
   --secondary-link-color: #4b5563;
@@ -40,7 +40,7 @@
   --foreground: white;
   --background-funding: #151617;
   /* Navbar */
-  --navbar-bg: #0d0e0e;
+  --navbar-bg: rgb(13, 14, 14, 0.9);
   --navbar-border: #181a1c;
   --link-color: #d1d5db;
   --secondary-link-color: #9ca3af;

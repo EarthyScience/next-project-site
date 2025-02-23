@@ -11,7 +11,7 @@ export default function NotFound() {
         </p>
         <div>
           <Link href="/" className="underline">
-            Return to Known Paths
+          Go back to Home
           </Link>
         </div>
       </div>

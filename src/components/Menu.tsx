@@ -7,12 +7,27 @@ import Socials from '@/components/Socials'
 import { FaLinkedinIn } from "react-icons/fa";
 // import { FaGithub } from "react-icons/fa";
 import { FaSquareXTwitter, FaBluesky } from "react-icons/fa6";
+import DesktopMenu from './DesktopMenu'
+import MobileMenu from './MobileMenu'
 
 const socialLinks = [
   { icon: FaBluesky, link: "https://bsky.app/profile/mpi-bgc.bsky.social" },
   { icon: FaLinkedinIn, link: "https://www.linkedin.com/company/max-planck-institute-for-biogeochemistry/" },
   { icon: FaSquareXTwitter, link: "https://x.com/mpi_bgc" },
   // { icon: FaGithub, link: "https://github.com/xxu-sA-123" },
+];
+
+
+const navigation = [
+  { text: 'Home', link: '/' },
+  { 
+    text: 'About',
+    items: [
+      { text: 'sub_menu1', link: '/sub_menu1' },
+      { text: 'sub_menu_2', link: '/sub_menu2' },
+    ]
+  },
+  { text: 'contact', link: '/contact' },
 ];
 
 export default function Menu() {
@@ -29,26 +44,7 @@ export default function Menu() {
                 Your Logo
               </Link>
             </div>
-            <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <Link
-                href="/"
-                className="inline-flex items-center px-1 pt-1 text-sm font-medium text-[var(--link-color)] hover:text-[var(--link-hover)]"
-              >
-                Home
-              </Link>
-              <Link
-                href="/about"
-                className="inline-flex items-center px-1 pt-1 text-sm font-medium text-[var(--secondary-link-color)] hover:text-[var(--link-hover)]"
-              >
-                About
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center px-1 pt-1 text-sm font-medium text-[var(--secondary-link-color)] hover:text-[var(--link-hover)]"
-              >
-                Contact
-              </Link>
-            </div>
+            <DesktopMenu items={navigation} />
           </div>
 
           {/* Theme Switcher */}
@@ -82,24 +78,7 @@ export default function Menu() {
       {isOpen && (
         <div className="sm:hidden bg-[var(--navbar-bg)]">
           <div className="pt-2 pb-3 space-y-1">
-            <Link
-              href="/"
-              className="block pl-3 pr-4 py-2 text-base font-medium text-[var(--link-color)] hover:bg-[var(--toggle-hover)]"
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="block pl-3 pr-4 py-2 text-base font-medium text-[var(--secondary-link-color)] hover:bg-[var(--toggle-hover)]"
-            >
-              About
-            </Link>
-            <Link
-              href="/contact"
-              className="block pl-3 pr-4 py-2 text-base font-medium text-[var(--secondary-link-color)] hover:bg-[var(--toggle-hover)]"
-            >
-              Contact
-            </Link>
+            <MobileMenu items={navigation} />
           </div>
             <Socials socialLinks={socialLinks} />
             <ThemeToggle />
