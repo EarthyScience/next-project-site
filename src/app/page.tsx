@@ -1,10 +1,8 @@
 // import Image from "next/image";
-import styles from "./page.module.css";
-
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
+    <div >
+      <main >
         <div className="text-3xl font-bold">Your Next Project Site</div>
         <ol>
           <li>
@@ -13,12 +11,12 @@ export default function Home() {
           <li>Save and see your changes instantly.</li>
         </ol>
 
-        <div className={styles.ctas}>
+        <div>
           <a
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.secondary}
+            // className="cta"
           >
             See what this template can do →
           </a>
