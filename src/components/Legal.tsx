@@ -1,9 +1,9 @@
 import React from 'react';
 import { FooterLinkProps, FooterLinksProps } from './FooterTypes';
 
-const FooterLink = ({ href, children }: FooterLinkProps) => (
+const FooterLink = ({ link, children }: FooterLinkProps) => (
   <a
-    href={href}
+    href={link}
     className="text-[var(--secondary-link-color)] hover:text-[var(--link-hover)] transition-colors text-sm"
   >
     {children}
@@ -17,9 +17,9 @@ const FooterLinks = ({ links, className = ''}: FooterLinksProps) => {
 
   return (
     <ul className={`flex flex-row flex-wrap space-x-4 gap-y-2 mt-2 md:mt-0 ${className}`}>
-      {links.map(({ href, label }) => (
-        <li key={href}>
-          <FooterLink href={href}>{label}</FooterLink>
+      {links.map(({ link, text }) => (
+        <li key={link}>
+          <FooterLink link={link}>{text}</FooterLink>
         </li>
       ))}
     </ul>

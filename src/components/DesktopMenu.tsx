@@ -23,7 +23,7 @@ const DesktopMenu = ({ items }: NavigationProps) => {
   };
 
   return (
-    <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+    <div className="hidden sm:ml-6 sm:flex sm:space-x-4">
         {items.map((item) => (
           <div
             key={item.text}
