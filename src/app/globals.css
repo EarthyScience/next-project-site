@@ -1,16 +1,63 @@
 @import "tailwindcss";
 
 :root {
+  /* Default theme variables */
   --background: #ffffff;
   --foreground: #171717;
   --background-funding: #151617;
+  --navbar-bg: white;
+  --navbar-border: #e5e7eb;
+  --link-color: #111827;
+  --secondary-link-color: #4b5563;
+  --link-hover: #1f2937;
+  --toggle-bg: rgba(0, 0, 0, 0.03);
+  --toggle-hover: rgba(0, 0, 0, 0.05);
+  --toggle-active: black;
+  --toggle-shadow: rgba(0, 0, 0, 0.1);
 }
 
-/* Apply Light Theme Explicitly */
+/* Light Theme */
 [data-theme='light'] {
   --background: #ffffff;
   --foreground: #171717;
   --background-funding: #d8dce0;
+  /* Navbar */
+  --navbar-bg: white;
+  --navbar-border: #e5e7eb;
+  --link-color: #111827;
+  --secondary-link-color: #4b5563;
+  --link-hover: #1f2937;
+  /* Toggle */
+  --toggle-bg: rgba(0, 0, 0, 0.03);
+  --toggle-hover: rgba(0, 0, 0, 0.05);
+  --toggle-active: black;
+  --toggle-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Theme */
+[data-theme='dark'] {
+  --background: #000000;
+  --foreground: white;
+  --background-funding: #151617;
+  /* Navbar */
+  --navbar-bg: #0d0e0e;
+  --navbar-border: #181a1c;
+  --link-color: #d1d5db;
+  --secondary-link-color: #9ca3af;
+  --link-hover: #ffffff;
+  /* Toggle */
+  --toggle-bg: rgba(255, 255, 255, 0.08);
+  --toggle-hover: rgba(255, 255, 255, 0.1);
+  --toggle-active: white;
+  --toggle-shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* System Theme - Light */
+@media (prefers-color-scheme: light) {
+  :root[data-theme='system'] {
+    --background: #ffffff;
+    --foreground: #171717;
+    --background-funding: #d8dce0;
     /* Navbar */
     --navbar-bg: white;
     --navbar-border: #e5e7eb;
@@ -20,13 +67,17 @@
     /* Toggle */
     --toggle-bg: rgba(0, 0, 0, 0.03);
     --toggle-hover: rgba(0, 0, 0, 0.05);
-    --toggle-active: black; /* Ensures icon is visible in light mode */
+    --toggle-active: black;
     --toggle-shadow: rgba(0, 0, 0, 0.1);
+  }
 }
-[data-theme='dark'] {
-  --background: #000000;
-  --foreground: white;
-  --background-funding: #151617;
+
+/* System Theme - Dark */
+@media (prefers-color-scheme: dark) {
+  :root[data-theme='system'] {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --background-funding: #151617;
     /* Navbar */
     --navbar-bg: #0d0e0e;
     --navbar-border: #181a1c;
@@ -36,10 +87,12 @@
     /* Toggle */
     --toggle-bg: rgba(255, 255, 255, 0.08);
     --toggle-hover: rgba(255, 255, 255, 0.1);
-    --toggle-active: white; /* Ensures icon is visible in dark mode */
+    --toggle-active: white;
     --toggle-shadow: rgba(0, 0, 0, 0.3);
+  }
 }
 
+/* Base styles */
 html,
 body {
   max-width: 100vw;
@@ -54,15 +107,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --background-funding: #151617;
+/* Safari-specific fixes */
+@supports (-webkit-hyphens:none) {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
   }
-  /* .logo {
-    filter: invert();
-  } */
+  
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
 /* Theme Switcher Container */
@@ -112,6 +167,7 @@ body {
   transform: translateY(0);
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0s;
 }
+
 /* Active state of the theme switcher icon */
 .theme-switch.active {
   width: 32px;
@@ -135,9 +191,9 @@ body {
     justify-content: center !important;
     gap: 8px !important;
     margin-bottom: 8px !important;
-    opacity: 1 !important; /* Show immediately on small screens */
-    transform: translateY(0) !important; /* Prevent dropdown from sliding */
-    visibility: visible !important; /* Ensure it's visible */
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    visibility: visible !important;
     transition: none !important;
   }
 
