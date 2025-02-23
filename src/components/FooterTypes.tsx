@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
 export interface LinkItem {
-  href: string;
-  label: string;
+  link: string;
+  text: string;
 }
 
 export interface FooterProps {
@@ -11,7 +11,7 @@ export interface FooterProps {
 }
 
 export interface FooterLinkProps {
-  href: string;
+  link: string;
   children: React.ReactNode;
 }
 

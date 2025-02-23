@@ -1,34 +1,13 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+import LogoProject from './Logo'
 import ThemeToggle from '@/components/ThemeToggle'
 import Socials from '@/components/Socials'
-import { FaLinkedinIn } from "react-icons/fa";
-// import { FaGithub } from "react-icons/fa";
-import { FaSquareXTwitter, FaBluesky } from "react-icons/fa6";
 import DesktopMenu from './DesktopMenu'
 import MobileMenu from './MobileMenu'
-
-const socialLinks = [
-  { icon: FaBluesky, link: "https://bsky.app/profile/mpi-bgc.bsky.social" },
-  { icon: FaLinkedinIn, link: "https://www.linkedin.com/company/max-planck-institute-for-biogeochemistry/" },
-  { icon: FaSquareXTwitter, link: "https://x.com/mpi_bgc" },
-  // { icon: FaGithub, link: "https://github.com/xxu-sA-123" },
-];
-
-
-const navigation = [
-  { text: 'Home', link: '/' },
-  { 
-    text: 'About',
-    items: [
-      { text: 'sub_menu1', link: '/sub_menu1' },
-      { text: 'sub_menu_2', link: '/sub_menu2' },
-    ]
-  },
-  { text: 'contact', link: '/contact' },
-];
+import { navigation } from '@/constants/configNav'
+import { socialLinks } from '@/constants/socials'
 
 export default function Menu() {
   const [isOpen, setIsOpen] = useState(false)
@@ -37,22 +16,14 @@ export default function Menu() {
     <nav className="fixed top-0 left-0 right-0 bg-[var(--navbar-bg)] border-b border-[var(--navbar-border)] z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
-          {/* Logo + Links */}
           <div className="flex">
-            <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className="text-xl font-bold text-[var(--link-color)] hover:text-[var(--link-hover)]">
-                Your Logo
-              </Link>
-            </div>
+            <LogoProject icon="/bgc-logo.png" title="Site Starter" />
             <DesktopMenu items={navigation} />
           </div>
-
-          {/* Theme Switcher */}
           <div className="hidden sm:flex items-center space-x-4">
             <Socials socialLinks={socialLinks} />
             <ThemeToggle />
           </div>
-
           {/* Mobile Menu Button */}
           <div className="sm:hidden flex items-center">
             <button
