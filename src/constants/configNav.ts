@@ -4,24 +4,24 @@ export const navigation = [
     { 
       text: 'Project',
       items: [
-        { text: 'Goals', link: '/goals' },
-        { text: 'Team', link: '/team' },
+        { text: 'About', link: '/project/about' },
+        { text: 'Team', link: '/project/team' },
       ]
     },
-    { text: 'News', link: '/news' },
     {
         text: 'Resources',
         items: [
-          { text: 'Publications', link: '/publications' },
-          { text: 'Data & Tools', link: '/data_tools' },
+          { text: 'Publications', link: '/resources/publications' },
+          { text: 'Data & Tools', link: '/resources/tools-data' },
         ]
       },
-
+    { text: 'Events', link: '/events' },
+    { text: 'News', link: '/news' },
     { text: 'Contact', link: '/contact' },
   ];
   
 // footer links
  export const navFooter = [
-    { text: 'Imprint', link: '/imprint' },
-    { text: 'Privacy Policy', link: '/privacy' },
+    { text: 'Imprint', link: '/terms/imprint' },
+    { text: 'Privacy Policy', link: '/terms/privacy' },
   ]
