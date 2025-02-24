@@ -10,6 +10,11 @@ type AnchorProps = ComponentPropsWithoutRef<'a'>;
 type BlockquoteProps = ComponentPropsWithoutRef<'blockquote'>;
 
 const components = {
+  wrapper: ({ children }: { children: React.ReactNode }) => (
+    <div className="max-w-6xl mx-auto px-6 mt-16 py-8 space-y-8">
+      {children}
+    </div>
+  ),
   h1: (props: HeadingProps) => (
     <h1 className="font-bold pt-12 mb-0" {...props} />
   ),
