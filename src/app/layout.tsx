@@ -22,11 +22,7 @@ export default function RootLayout({
       >
         <ThemeProvider defaultTheme="system">
         <Menu />
-          <div className="flex flex-col justify-between mt-12 sm:mt-16 md:mt-24 lg:mt-32 px-8 relative">
-            <main className="max-w-[60ch] mx-auto w-full space-y-6 flex-grow mb-8 mt-8 md:mt-6 lg:-mt-2 xl:-mt-6">
-              {children}
-            </main>
-          </div>
+          {children}
           <Footer />
         </ThemeProvider>
       </body>
