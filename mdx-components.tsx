@@ -9,12 +9,27 @@ type ListItemProps = ComponentPropsWithoutRef<'li'>;
 type AnchorProps = ComponentPropsWithoutRef<'a'>;
 type BlockquoteProps = ComponentPropsWithoutRef<'blockquote'>;
 
+type WPProps = {
+  number: number;
+  children: React.ReactNode;
+};
+
+const WP = ({ number, children }: WPProps) => {
+  const style = {
+    color: `var(--var-wp-${number})`,
+    fontWeight: 'bold',
+  };
+
+  return <span style={style}>{children}</span>;
+};
+
 const components = {
   wrapper: ({ children }: { children: React.ReactNode }) => (
-    <div className="max-w-6xl mx-auto px-6 mt-16 py-8 space-y-8">
+    <div className="max-w-6xl mx-auto px-6 mt-8 py-8 space-y-8">
       {children}
     </div>
   ),
+
   h1: (props: HeadingProps) => (
     <h1 className="font-bold pt-12 mb-0" {...props} />
   ),
@@ -48,10 +63,10 @@ const components = {
   ),
   li: (props: ListItemProps) => <li className="pl-1" {...props} />,
   em: (props: ComponentPropsWithoutRef<'em'>) => (
-    <em className="font-medium" {...props} />
+    <em className="font-bold" {...props} />
   ),
   strong: (props: ComponentPropsWithoutRef<'strong'>) => (
-    <strong className="font-medium" {...props} />
+    <strong className="font-bold" {...props} />
   ),
   a: ({ href, children, ...props }: AnchorProps) => {
     const className =
@@ -112,6 +127,7 @@ const components = {
       {...props}
     />
   ),
+  WP,
 };
 
 declare global {
