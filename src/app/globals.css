@@ -14,6 +14,11 @@
   --toggle-hover: rgba(0, 0, 0, 0.05);
   --toggle-active: black;
   --toggle-shadow: rgba(0, 0, 0, 0.1);
+  /* work packages palette */
+  --var-wp-1: red;
+  --var-wp-2: blue;
+  --var-wp-3: green;
+  --var-wp-4: orange;
 }
 
 /* Light Theme */
