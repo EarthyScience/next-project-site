@@ -173,3 +173,10 @@
       max-height: 480px;
     }
   }
+  
+  @media (min-width: 768px) and (max-width: 948px) {
+    .card {
+      width: 260px;
+    }
+  }
+  
