@@ -71,7 +71,7 @@ export const CardProfile = ({
               <div className="icon-container">
                 <MdEmail size={22} />
               </div>
-              <div className="email-text">
+              <div >
                 <ProtectedEmail email={email} />
               </div>
             </div>

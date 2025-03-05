@@ -1,5 +1,6 @@
 import React from 'react';
 import { ContactsProps } from './FooterTypes';
+import ProtectedEmail from './ProtectedEmail';
 const Contacts = ({ 
   data, 
   title = '',
@@ -33,13 +34,17 @@ const Contacts = ({
                     <div>{contact.position}</div>
                   )}
                   {contact.email && (
-                    <div>Email: {contact.email}</div>
+                    <div>
+                      <ProtectedEmail email={contact.email} />
+                      </div>
                   )}
                 </li>
               ))}
               {mainEmail && (
                 <li>
-                  <div>Email: {mainEmail}</div>
+                  <div>
+                  <ProtectedEmail email={mainEmail} />
+                  </div>
                 </li>
               )}
             </ul>

@@ -91,6 +91,10 @@ p {
   border-radius: 6px;
   /* line-height: 1.6; */
 }
+.protected-email:hover {
+  background-color: var(--navbar-bg);
+  color: var(--accent-1);
+}
 
 /* Base styles */
 html, body {
