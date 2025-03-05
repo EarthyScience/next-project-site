@@ -34,7 +34,7 @@ const DesktopMenu = ({ items }: NavigationProps) => {
             {item.link ? (
               <Link
                 href={item.link}
-                className="inline-flex items-center px-1 pt-1 text-sm font-medium text-[var(--secondary-link-color)] hover:text-[var(--link-hover)]"
+                className="inline-flex items-center px-1 pt-1 text-sm font-medium text-[var(--secondary-link-color)]"
               >
                 {item.text}
                 {item.items && (
@@ -81,7 +81,7 @@ const DesktopMenu = ({ items }: NavigationProps) => {
                     <Link
                       key={subItem.text}
                       href={subItem.link || '#'}
-                      className="block px-4 py-2 text-sm text-[var(--secondary-link-color)] hover:text-[var(--link-hover)] hover:bg-[var(--navbar-border)]"
+                      className="block px-4 py-2 text-sm text-[var(--secondary-link-color)] hover:bg-[var(--navbar-border)]"
                       role="menuitem"
                     >
                       {subItem.text}
