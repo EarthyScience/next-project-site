@@ -6,8 +6,8 @@ import ThemeToggle from '@/components/ThemeToggle'
 import Socials from '@/components/Socials'
 import DesktopMenu from './DesktopMenu'
 import MobileMenu from './MobileMenu'
-import { navigation } from '@/constants/configNav'
-import { socialLinks } from '@/constants/socials'
+import { navigation } from '@/config/nav'
+import { socialLinks } from '@/utils/socials'
 
 export default function Menu() {
   const [isOpen, setIsOpen] = useState(false)
