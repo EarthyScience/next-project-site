@@ -9,7 +9,6 @@ export async function getMdxFiles(cardsPath: string = 'src/app/team/cards') {
     return fileNames
       .filter(file => path.extname(file) === '.mdx')
       .map(file => path.basename(file, '.mdx'));
-      console.log(fileNames)
   } catch (error) {
     console.error('Error reading cards directory:', error);
     return [];

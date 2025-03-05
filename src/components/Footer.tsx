@@ -5,11 +5,11 @@ import Copyright from './Copyright';
 import Address from './Address';
 import Contacts from './Contacts';
 import Funding from './Funding';
-import ProjectFunding from '../constants/ProjectFunding';
+import ProjectFunding from '@/assets/ProjectFunding';
 import ThemeToggle from './ThemeToggle';
-import { navFooter  } from '../constants/configNav';
-import { contactInfo } from '../constants/contacts';
-import { fundsLogos } from '@/constants/fundingLogos';
+import { navFooter  } from '@/config/nav';
+import { contactInfo } from '@/assets/contacts';
+import { fundsLogos } from '@/assets/fundingLogos';
 
 const Footer = ({ className = "" }: FooterProps) => {
   return (
