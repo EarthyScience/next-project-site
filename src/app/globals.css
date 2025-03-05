@@ -2,104 +2,98 @@
 
 :root {
   /* Default theme variables */
-  --background: #ffffff;
+  --background: #FFFFFF;
   --foreground: #171717;
-  --background-funding: #151617;
-  --navbar-bg: white;
-  --navbar-border: #e5e7eb;
+  --background-funding: #F1F2F4;
+  --navbar-bg: #FFFFFF;
+  --navbar-border: #DCDFE4;
   --link-color: #111827;
-  --secondary-link-color: #4b5563;
+  --secondary-link-color: #37404a;
   --link-hover: #1f2937;
-  --toggle-bg: rgba(0, 0, 0, 0.03);
-  --toggle-hover: rgba(0, 0, 0, 0.05);
+  --toggle-bg: #091E4208;
+  --toggle-hover: #091E420F;
   --toggle-active: black;
   --toggle-shadow: rgba(0, 0, 0, 0.1);
-  /* work packages palette */
+  --paragraph-bg: #F9FAFB;
+  --paragraph-text: #374151;
+    /* work packages palette */
   --var-wp-1: red;
   --var-wp-2: blue;
   --var-wp-3: green;
   --var-wp-4: orange;
+  /* Accent color variables for hover effects */
+  --accent-1: #007bff;  /* Blue accent for hover */
+  --accent-2: #28a745;  /* Green accent for hover */
+  --accent-3: #ffc107;  /* Yellow accent for hover */
+  --accent-4: #dc3545;  /* Red accent for hover */
 }
 
 /* Light Theme */
 [data-theme='light'] {
-  --background: #ffffff;
+  --background: #FFFFFF;
   --foreground: #171717;
-  --background-funding: #d8dce0;
-  /* Navbar */
-  --navbar-bg: rgb(255, 255, 255, 0.9);
-  --navbar-border: #e5e7eb;
+  --background-funding: #F1F2F4;
+  --navbar-bg: #F7F8F9;
+  --navbar-border: #DCDFE4;
   --link-color: #111827;
-  --secondary-link-color: #4b5563;
+  --secondary-link-color: #37404a;
   --link-hover: #1f2937;
-  /* Toggle */
-  --toggle-bg: rgba(0, 0, 0, 0.03);
-  --toggle-hover: rgba(0, 0, 0, 0.05);
+  --toggle-bg: #091E4208;
+  --toggle-hover: #091E420F;
   --toggle-active: black;
   --toggle-shadow: rgba(0, 0, 0, 0.1);
+  --paragraph-bg: #F9FAFB;
+  --paragraph-text: #374151;
+  --accent-1: #007bff;
+  --accent-2: #28a745;
+  --accent-3: #ffc107;
+  --accent-4: #dc3545;
 }
 
 /* Dark Theme */
 [data-theme='dark'] {
-  --background: #000000;
-  --foreground: white;
-  --background-funding: #151617;
-  /* Navbar */
-  --navbar-bg: rgb(13, 14, 14, 0.9);
-  --navbar-border: #181a1c;
-  --link-color: #d1d5db;
+  --background: #161A1D;
+  --foreground: #ededed;
+  --background-funding: #1D2125;
+  --navbar-bg: #22272B;
+  --navbar-border: #BCD6F00A;
+  --link-color: #e2e8f0;
   --secondary-link-color: #9ca3af;
   --link-hover: #ffffff;
-  /* Toggle */
-  --toggle-bg: rgba(255, 255, 255, 0.08);
+  --toggle-bg: #03040442;
   --toggle-hover: rgba(255, 255, 255, 0.1);
   --toggle-active: white;
   --toggle-shadow: rgba(0, 0, 0, 0.3);
+  --paragraph-bg: #1F2428;
+  --paragraph-text: #D1D5DB;
+  --accent-1: #3fc7ea;
+  --accent-2: #28a745;
+  --accent-3: #ffc107;
+  --accent-4: #dc3545;
 }
 
-/* System Theme - Light */
-@media (prefers-color-scheme: light) {
-  :root[data-theme='system'] {
-    --background: #ffffff;
-    --foreground: #171717;
-    --background-funding: #d8dce0;
-    /* Navbar */
-    --navbar-bg: white;
-    --navbar-border: #e5e7eb;
-    --link-color: #111827;
-    --secondary-link-color: #4b5563;
-    --link-hover: #1f2937;
-    /* Toggle */
-    --toggle-bg: rgba(0, 0, 0, 0.03);
-    --toggle-hover: rgba(0, 0, 0, 0.05);
-    --toggle-active: black;
-    --toggle-shadow: rgba(0, 0, 0, 0.1);
-  }
+/* Base styles for <a> elements */
+a {
+  /* color: var(--link-color); */
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-/* System Theme - Dark */
-@media (prefers-color-scheme: dark) {
-  :root[data-theme='system'] {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --background-funding: #151617;
-    /* Navbar */
-    --navbar-bg: #0d0e0e;
-    --navbar-border: #181a1c;
-    --link-color: #d1d5db;
-    --secondary-link-color: #9ca3af;
-    --link-hover: #ffffff;
-    /* Toggle */
-    --toggle-bg: rgba(255, 255, 255, 0.08);
-    --toggle-hover: rgba(255, 255, 255, 0.1);
-    --toggle-active: white;
-    --toggle-shadow: rgba(0, 0, 0, 0.3);
-  }
+a:hover {
+  color: var(--accent-1); /* Use accent-1 color for all hover links */
+}
+
+/* Paragraph Styling */
+p {
+  /* background: var(--paragraph-bg); */
+  color: var(--paragraph-text);
+  padding: 8px 12px;
+  border-radius: 6px;
+  /* line-height: 1.6; */
 }
 
 /* Base styles */
-html,
-body {
+html, body {
   max-width: 100vw;
   overflow-x: hidden;
 }
@@ -118,7 +112,6 @@ body {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
   }
-  
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -201,12 +194,10 @@ body {
     visibility: visible !important;
     transition: none !important;
   }
-
   .theme-switcher {
     display: flex;
     justify-content: center;
   }
-
   /* Show footer-theme-switcher on mobile */
   .footer-theme-switcher {
     display: flex !important;
