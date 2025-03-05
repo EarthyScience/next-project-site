@@ -30,7 +30,7 @@ const ContentSplitSection = ({
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
         {title}
       </h1>
-      <p className="text-lg md:text-xl text-gray-600">
+      <p className="text-lg md:text-xl">
         {subtitle}
       </p>
     </div>
