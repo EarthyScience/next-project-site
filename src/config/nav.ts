@@ -16,7 +16,7 @@ export const navigation = [
         ]
       },
     { text: 'Events', link: '/events' },
-    { text: 'News', link: '/news' },
+    { text: 'News', link: '/blog' },
     { text: 'Contact', link: '/contact' },
   ];
   
