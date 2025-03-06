@@ -1,3 +1,4 @@
+// Adapted from https://github.com/vercel/examples/tree/main/solutions/blog MIT License
 import { notFound } from 'next/navigation'
 import { CustomMDX } from '@/../mdx-components'
 import { formatDate, getBlogPosts } from '@/utils/utilsBlog'

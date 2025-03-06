@@ -1,3 +1,4 @@
+// Adapted from https://github.com/vercel/examples/tree/main/solutions/blog MIT License
 import { getBlogPosts } from '@/utils/utilsBlog'
 
 export const baseUrl = 'https://portfolio-blog-starter.vercel.app'
