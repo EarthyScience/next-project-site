@@ -2,70 +2,70 @@
 
 :root {
   /* Default theme variables */
-  --background: #FFFFFF;
+  --background: #FAFAFA; /* Slightly off-white for less harshness */
   --foreground: #171717;
   --background-funding: #F1F2F4;
   --navbar-bg: #FFFFFF;
-  --navbar-border: #DCDFE4;
-  --link-color: #111827;
-  --secondary-link-color: #37404a;
-  --link-hover: #1f2937;
-  --toggle-bg: #091E4208;
-  --toggle-hover: #091E420F;
-  --toggle-active: black;
+  --navbar-border: #E1E5EB; /* Subtle change for a softer border */
+  --link-color: #1E293B; /* Darker for better contrast */
+  --secondary-link-color: #4B5563; /* Slightly more muted */
+  --link-hover: #1E40AF; /* Deep blue hover */
+  --toggle-bg: #F3F4F6; /* Lighter, softer toggle background */
+  --toggle-hover: #E5E7EB; /* Softer hover state */
+  --toggle-active: #2563EB; /* Blue for active state */
   --toggle-shadow: rgba(0, 0, 0, 0.1);
   --paragraph-bg: #F9FAFB;
   --paragraph-text: #374151;
-    /* work packages palette */
-  --var-wp-1: red;
-  --var-wp-2: blue;
-  --var-wp-3: green;
-  --var-wp-4: orange;
+  /* Work packages palette */
+  --var-wp-1: #F87171; /* Red accent */
+  --var-wp-2: #60A5FA; /* Blue accent */
+  --var-wp-3: #34D399; /* Green accent */
+  --var-wp-4: #FBBF24; /* Orange accent */
   /* Accent color variables for hover effects */
-  --accent-1: #007bff;  /* Blue accent for hover */
-  --accent-2: #28a745;  /* Green accent for hover */
-  --accent-3: #ffc107;  /* Yellow accent for hover */
-  --accent-4: #dc3545;  /* Red accent for hover */
-  /* code */
-  --sh-class: #2d5e9d;
-  --sh-identifier: #d5dae0;
-  --sh-sign: #8996a3;
-  --sh-property: #0550ae;
-  --sh-entity: #249a97;
-  --sh-jsxliterals: #6266d1;
-  --sh-string: #00a99a;
-  --sh-keyword: #f47067;
-  --sh-comment: #a19595;
+  --accent-1: #3B82F6; /* Brighter blue */
+  --accent-2: #10B981; /* Vibrant green */
+  --accent-3: #F59E0B; /* Warm yellow */
+  --accent-4: #EF4444; /* Rich red */
+  /* Code */
+  --sh-class: #eb9035; /* Slightly darker blue */
+  --sh-identifier: #9CA3AF; /* Softer gray */
+  --sh-sign: #6B7280; /* Muted gray */
+  --sh-property: #3B82F6; /* Blue property */
+  --sh-entity: #16A34A; /* Green entity */
+  --sh-jsxliterals: #6366F1; /* Purple literals */
+  --sh-string: #10B981; /* Green string */
+  --sh-keyword: #F472B6; /* Pink keyword */
+  --sh-comment: #9CA3AF; /* Soft comment */
 }
 
 /* Light Theme */
 [data-theme='light'] {
-  --background: #FFFFFF;
+  --background: #FAFAFA;
   --foreground: #171717;
   --background-funding: #F1F2F4;
   --navbar-bg: #F7F8F9;
-  --navbar-border: #DCDFE4;
-  --link-color: #111827;
-  --secondary-link-color: #37404a;
-  --link-hover: #1f2937;
-  --toggle-bg: #091E4208;
-  --toggle-hover: #091E420F;
-  --toggle-active: black;
+  --navbar-border: #E1E5EB;
+  --link-color: #1E293B;
+  --secondary-link-color: #4B5563;
+  --link-hover: #1E40AF;
+  --toggle-bg: #F3F4F6;
+  --toggle-hover: #E5E7EB;
+  --toggle-active: #2563EB;
   --toggle-shadow: rgba(0, 0, 0, 0.1);
   --paragraph-bg: #F9FAFB;
   --paragraph-text: #374151;
-  --accent-1: #007bff;
-  --accent-2: #28a745;
-  --accent-3: #ffc107;
-  --accent-4: #dc3545;
+  --accent-1: #3B82F6;
+  --accent-2: #10B981;
+  --accent-3: #F59E0B;
+  --accent-4: #EF4444;
 }
 
 /* Dark Theme */
 [data-theme='dark'] {
-  --background: #161A1D;
+  --background: rgb(26, 26, 26);
   --foreground: #ededed;
-  --background-funding: #1D2125;
-  --navbar-bg: #22272B;
+  --background-funding: rgb(32, 33, 38);
+  --navbar-bg: rgb(22, 22, 24);
   --navbar-border: #BCD6F00A;
   --link-color: #e2e8f0;
   --secondary-link-color: #c4c6ca;
