@@ -1,9 +1,14 @@
 
-import ContentSplitSection from '../components/ContentSplitSection';
+import ContentSplitSection from '@/components/ContentSplitSection';
 import Image from 'next/image';
 import SharedContent from './SharedContent.mdx'
+import EarthGlobe from '@/components/EarthGlobe'; 
 
-# 
+<ContentSplitSection
+    title="Elevate Your Project" 
+    subtitle="Our template helps you reach new heights with innovative solutions"
+    media={<EarthGlobe className="w-[740px]" />}
+/>
 
 <ContentSplitSection
     title="Elevate Your Project" 
