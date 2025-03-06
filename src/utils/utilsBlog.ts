@@ -1,3 +1,4 @@
+// Adapted from https://github.com/vercel/examples/tree/main/solutions/blog MIT License
 import fs from 'fs'
 import path from 'path'
 

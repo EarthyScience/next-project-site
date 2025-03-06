@@ -1,3 +1,4 @@
+// Adapted from https://github.com/vercel/examples/tree/main/solutions/blog MIT License
 import Link from 'next/link'
 import { formatDate, getBlogPosts } from '@/utils/utilsBlog'
 
