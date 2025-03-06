@@ -1,54 +1,14 @@
 import { notFound } from 'next/navigation'
-import { CustomMDX } from '@/utils/mdx'
+import { CustomMDX } from '@/../mdx-components'
 import { formatDate, getBlogPosts } from '@/utils/utilsBlog'
 import { baseUrl } from '@/utils/sitemap'
+import Link from 'next/link'
 
 export async function generateStaticParams() {
   const posts = getBlogPosts()
-
   return posts.map((post) => ({
     slug: post.slug,
   }))
-}
-
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const post = getBlogPosts().find((post) => post.slug === params.slug)
-  if (!post) {
-    return
-  }
-
-  const {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-  } = post.metadata
-  const ogImage = image
-    ? image
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}`
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      type: 'article',
-      publishedTime,
-      url: `${baseUrl}/blog/${post.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: [ogImage],
-    },
-  }
 }
 
 interface BlogParams {
@@ -57,15 +17,17 @@ interface BlogParams {
   };
 }
 
-export default function Blog({ params }: BlogParams) {
-  const post = getBlogPosts().find((post) => post.slug === params.slug)
-
+export default async function Blog({ params }: BlogParams) {
+  const { slug } = await params;
+  const posts = getBlogPosts();
+  const post = posts.find((post) => post.slug === slug);
+  
   if (!post) {
     notFound()
   }
-
+  
   return (
-    <section>
+    <section className='max-w-6xl mx-auto px-6 mt-8 py-12'>
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -88,14 +50,30 @@ export default function Blog({ params }: BlogParams) {
           }),
         }}
       />
-      <h1 className="title font-semibold text-2xl tracking-tighter">
-        {post.metadata.title}
-      </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(post.metadata.publishedAt)}
+      <div className="flex items-center mb-2">
+        <Link href="/blog" className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200">
+          ← Back to Posts
+        </Link>
+      </div>
+
+      <div className="flex justify-between items-center mb-4">
+        <div className="w-1/4"></div>
+        <h1 className="title font-semibold text-2xl tracking-tighter text-center w-1/2">
+          {post.metadata.title}
+        </h1>
+        <div className="w-1/4 flex justify-end">
+          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+            {formatDate(post.metadata.publishedAt)}
+          </p>
+        </div>
+      </div>
+
+      <div className="mb-8 flex justify-center">
+        <p className='max-w-2xl' style={{ background: 'var(--paragraph-bg)' }}>
+          {post.metadata.summary}
         </p>
       </div>
+      
       <article className="prose">
         <CustomMDX source={post.content} />
       </article>
