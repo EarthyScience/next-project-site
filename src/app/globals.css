@@ -26,6 +26,16 @@
   --accent-2: #28a745;  /* Green accent for hover */
   --accent-3: #ffc107;  /* Yellow accent for hover */
   --accent-4: #dc3545;  /* Red accent for hover */
+  /* code */
+  --sh-class: #2d5e9d;
+  --sh-identifier: #d5dae0;
+  --sh-sign: #8996a3;
+  --sh-property: #0550ae;
+  --sh-entity: #249a97;
+  --sh-jsxliterals: #6266d1;
+  --sh-string: #00a99a;
+  --sh-keyword: #f47067;
+  --sh-comment: #a19595;
 }
 
 /* Light Theme */
@@ -94,6 +104,22 @@ p {
 .protected-email:hover {
   background-color: var(--navbar-bg);
   color: var(--accent-1);
+}
+
+code {
+  color: var(--sh-identifier);
+  padding: 0.2em 0.4em; /* Add some padding */
+  border-radius: 4px; /* Rounded corners */
+  font-family: monospace; /* Use a monospace font */
+  font-size: 0.95em;
+}
+
+pre {
+  background-color: #282c34; /* Dark background for full code block */
+  color: #ffffff; /* Default text color */
+  padding: 1em; /* Add padding inside the block */
+  border-radius: 8px; /* Smooth rounded edges */
+  overflow-x: auto; /* Handle horizontal overflow for long lines */
 }
 
 /* Base styles */
