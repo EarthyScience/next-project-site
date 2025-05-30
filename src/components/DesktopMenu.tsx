@@ -1,8 +1,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
-// import LogoProject from './Logo'
-import { FaBluesky } from "react-icons/fa6";
+import Image from "next/image"
 
 import {
   NavigationMenu,
@@ -42,9 +41,9 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-medium mb-1">{title}</div>
+          <div className="text-sm font-medium mb-1 text-foreground">{title}</div>
           {children && (
-            <p className="text-sm leading-snug text-muted-foreground m-0">
+            <p className="text-sm leading-snug text-muted-foreground -m-3">
               {children}
             </p>
           )}
@@ -73,14 +72,14 @@ const DesktopMenu = ({ items }: NavigationProps) => {
                             className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                             href={item.link || '/'}
                           >
-                            <div className="mb-4 text-lg">
-                              <FaBluesky className="h-6 w-6" />
+                            <div className="mb-4 text-lg text-foreground">
+                               <Image src="/logo.png" alt="logo" width={64} height={64} className="mr-4"/>
                             </div>
-                            <div className="mb-2 text-lg font-medium">
+                            <div className="mb-2 text-lg font-medium var(--accent-1)">
                               {item.name}
                             </div>
                             {item.description && (
-                              <p className="text-sm leading-tight text-muted-foreground">
+                              <p className="text-sm leading-tight text-muted-foreground -m-3">
                               {item.description}
                               </p>
                             )}

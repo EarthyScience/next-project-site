@@ -15,9 +15,9 @@ export default function Menu() {
   return (
     <nav className="fixed top-0 left-0 right-0 bg-[var(--navbar-bg)] border-b border-[var(--navbar-border)] z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-12">
           <div className="flex">
-            <LogoProject icon="/bgc-logo.png" title="Site Starter" />
+            <LogoProject icon="/logo.png" title="Project's name" />
             <DesktopMenu items={navigation} />
           </div>
           <div className="hidden sm:flex items-center space-x-4">

@@ -6,6 +6,7 @@ interface ContentSplitSectionProps {
   media?: React.ReactNode | null;
   mediaPosition?: 'left' | 'right';
   layout?: 'balanced' | 'text-emphasis' | 'media-emphasis';
+  shadow?: boolean;
 }
 
 const ContentSplitSection = ({
@@ -14,6 +15,7 @@ const ContentSplitSection = ({
   media,
   mediaPosition = 'right',
   layout = 'balanced',
+  shadow = false,
 }: ContentSplitSectionProps) => {
   // Determine width classes based on layout
   const widthClasses = {
@@ -39,7 +41,7 @@ const ContentSplitSection = ({
   const mediaContent = (
     <div className={`${mediaWidth} flex justify-center md:mx-8`}>
       {media || (
-        <div className="rounded-lg h-64 w-full flex items-center justify-center shadow-xl">
+        <div className="rounded-lg h-64 w-full flex items-center justify-center">
           <p>Place your image or component here</p>
         </div>
       )}
@@ -47,7 +49,7 @@ const ContentSplitSection = ({
   );
 
   return (
-    <div className="w-full rounded-lg overflow-hidden shadow-xl">
+    <div className={`w-full rounded-lg overflow-hidden ${shadow ? 'shadow-xl' : ''}`}>
       <div className="max-w-6xl mx-auto px-4 py-12 md:py-16 flex flex-col md:flex-row items-center">
         {mediaPosition === 'left' ? (
           <>
