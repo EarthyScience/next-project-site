@@ -249,36 +249,6 @@ body {
   height: 18px;
 }
 
-/* Small screen: Always show buttons and center them */
-@media (max-width: 600px) {
-  .dropdown-content {
-    display: flex !important;
-    position: static !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    gap: 8px !important;
-    margin-bottom: 8px !important;
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    visibility: visible !important;
-    transition: none !important;
-  }
-  .theme-switcher {
-    display: flex;
-    justify-content: center;
-  }
-  /* Show footer-theme-switcher on mobile */
-  .footer-theme-switcher {
-    display: flex !important;
-    margin-top: 8px !important;
-  }
-}
-
-/* Default behavior: Hide footer-theme-switcher on larger screens */
-.footer-theme-switcher {
-  display: none;
-}
-
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

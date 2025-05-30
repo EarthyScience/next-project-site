@@ -6,10 +6,11 @@ import Address from './Address';
 import Contacts from './Contacts';
 import Funding from './Funding';
 import ProjectFunding from '@/assets/ProjectFunding';
-import ThemeToggle from './ThemeToggle';
 import { navFooter  } from '@/config/nav';
 import { contactInfo } from '@/assets/contacts';
 import { fundsLogos } from '@/assets/fundingLogos';
+import Socials from '@/components/Socials'
+import { socialLinks } from '@/utils/socials'
 
 const Footer = ({ className = "" }: FooterProps) => {
   return (
@@ -20,13 +21,14 @@ const Footer = ({ className = "" }: FooterProps) => {
             description={<ProjectFunding />}
           />
           <div className="max-w-6xl mx-auto px-6 py-8 space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <Address address={contactInfo.contact.address} />
                   <Contacts data={contactInfo.contact.data} subtitle="Project Office"/>
+                  <Socials socialLinks={socialLinks} />
               </div>
+              
               <div className="pt-2 border-t border-[var(--navbar-border)] flex flex-col md:flex-row md:justify-between">
                 <Copyright text={contactInfo.copyright} />
-                <ThemeToggle className="footer-theme-switcher" />
                 <FooterLinks links={navFooter} />
               </div>
           </div>
