@@ -21,7 +21,7 @@
   --border: oklch(0.2 0 0 / 10%);
   /* Default light theme colors */
   --background-funding: rgb(0, 109, 102);
-  --navbar-bg: #FFFFFF;
+  --navbar-bg: rgba(255, 255, 255, 0.95);
   --navbar-border: #E1E5EB;
   --link-color: #1E293B;
   --secondary-link-color: #4B5563;
@@ -64,7 +64,7 @@
 
 [data-theme='dark'] {
   /* Dark theme base colors */
-  --background: #121212;
+  --background: rgb(26, 26, 26);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -81,8 +81,8 @@
   
   /* Dark theme custom colors */
   --background-funding: rgb(32, 33, 38);
-  --navbar-bg: rgb(22, 22, 24);
-  --navbar-border: #BCD6F00A;
+  --navbar-bg: rgba(22, 22, 24, 0.95);
+  --navbar-border:var(--border);
   --link-color: #e2e8f0;
   --secondary-link-color: #c4c6ca;
   --funding-text: #c4c6ca;
@@ -96,6 +96,7 @@
   
   /* Dark theme accents */
   --accent-1: #FF6B6B;
+  /* --accent-1: rgb(2, 151, 141); */
   --accent-2: #28a745;
   --accent-3: #ffc107;
   --accent-4: #dc3545;
