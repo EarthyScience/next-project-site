@@ -63,7 +63,7 @@ const Funding = ({
           <div className="text-2xl font-bold text-[var(--foreground)] mb-4">
             <RenderLogo logo={logo} defaultLogoText={defaultLogoText} />
           </div>
-          <div className="text-sm text-[var(--secondary-link-color)] max-w-6xl">
+          <div className="text-sm text-[var(--funding-text)] max-w-6xl">
             {description}
           </div>
         </div>

@@ -1,6 +1,5 @@
 // main navigation
 export const navigation = [
-    { text: 'Home', link: '/' },
     { 
       text: 'Project',
       isHome: true,
@@ -33,6 +32,9 @@ export const navigation = [
           { text: 'Data & Tools', link: '/resources/tools-data',
             description: "Utilize our tools and datasets to support your work and research.",
            },
+          { text: 'FAQs', link: '/resources/faqs',
+            description: "Find answers to frequently asked questions about the project and its resources.",
+          },
         ]
       },
     { text: 'Events', link: '/events' },
