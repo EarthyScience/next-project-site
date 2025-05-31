@@ -65,7 +65,7 @@
 [data-theme='dark'] {
   /* Dark theme base colors */
   --background: rgb(26, 26, 26);
-  --foreground: oklch(0.985 0 0);
+  --foreground: rgb(238, 238, 238);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
