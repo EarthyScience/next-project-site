@@ -1,16 +1,16 @@
 export const fundsLogos = [
       {
-        src: "/logo_dark.png",
-        alt: "bgc logo",
-        href: "https://www.bgc-jena.mpg.de/en/bgi/home",
-        width: 150,
-        height: 50
+        src: "/logoVA.png",
+        alt: "VA logo",
+        href: "https://github.com/EarthyScience/next-project-site",
+        width: 100,
+        height: 100
       },
       {
-        src: "/logo_mpi_dark.png",
-        alt: "max-planck logo",
-        href: "https://www.bgc-jena.mpg.de",
-        width: 150,
-        height: 50
+        src: "/logoFP.png",
+        alt: "FP logo",
+        href: "https://github.com/EarthyScience/next-project-site",
+        width: 100,
+        height: 100
       }
     ] 

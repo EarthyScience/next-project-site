@@ -35,7 +35,7 @@ const RenderLogo = ({ logo, defaultLogoText }: {
 
   if (Array.isArray(logo)) {
     return (
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2">
         {logo.map((item, index) => (
           <Logo key={index} logo={item} />
         ))}
