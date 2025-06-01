@@ -4,6 +4,7 @@ import Image, { ImageProps } from 'next/image';
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc';
 import { highlight } from 'sugar-high';
 import { CardProfile } from '@/components/CardProfile';
+import { CopyButton } from '@/components/copy-button';
 
 // Type definitions
 type HeadingProps = ComponentPropsWithoutRef<'h1'>;
@@ -160,7 +161,20 @@ const components = {
   a: CustomLink,
   code: ({ children, ...props }: ComponentPropsWithoutRef<'code'>) => {
     const codeHTML = highlight(children as string);
-    return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
+    return (
+    <div className="relative group">
+      <pre className="overflow-x-auto">
+        <CopyButton
+          codeSnippet={children as string}
+        />
+        <code
+          className="block pl-12 p-4"
+          dangerouslySetInnerHTML={{ __html: codeHTML }}
+          {...props}
+        />
+      </pre>
+    </div>
+  );
   },
   Image: RoundedImage,
   blockquote: (props: BlockquoteProps) => (
