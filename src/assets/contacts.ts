@@ -15,13 +15,13 @@ export const contactInfo = {
     data: {
       contacts: [
         {
-          name: "Jane Smith",
+          name: "Max-Planck",
           position: "Research Director",
-          email: "jane.smith@mpg.de"
+          email: "max.planck@mpg.de"
         },
         {
-          name: "John Doe",
-          email: "john.doe@mpg.de"
+          name: "Alice",
+          email: "alice.doe@mpg.de"
         },
       ],
       mainEmail: "contact@mpg.de"

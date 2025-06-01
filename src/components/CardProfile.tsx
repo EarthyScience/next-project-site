@@ -11,7 +11,7 @@ import ProtectedEmail from './ProtectedEmail';
 import './CardProfile.css'
 
 // Predefined icon mapping
-const SOCIAL_ICONS: { [key: string]: React.ElementType } = {
+const SOCIAL_ICONS: { [key: string]: React.ComponentType<{ size?: number }> } = {
   github: FaGithub,
   linkedin: FaLinkedin,
   twitter: FaTwitter,
@@ -81,7 +81,7 @@ export const CardProfile = ({
                 {socials.map((item) => {
                   // Use the id to look up the icon, fallback to a default if not found
                   const IconComponent = SOCIAL_ICONS[item.icon] || FaGlobe;
-                  
+
                   return (
                     item.link !== null && (
                       <a 

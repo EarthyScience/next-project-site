@@ -11,21 +11,29 @@ import { socialLinks } from '@/utils/socials'
 
 export default function Menu() {
   const [isOpen, setIsOpen] = useState(false)
+  const handleLinkClick = () => {
+      setIsOpen(false)
+    }
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-[var(--navbar-bg)] border-b border-[var(--navbar-border)] z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+      <div className="max-w-[1440px] px-2 md:px-8 py-1">
+        <div className="flex justify-between h-12">
           <div className="flex">
-            <LogoProject icon="/bgc-logo.png" title="Site Starter" />
-            <DesktopMenu items={navigation} />
+            <LogoProject icon="/logo.png" title={navigation[0]?.name || ''} />
+            <div className="hidden md:ml-6 md:block py-1">
+              <DesktopMenu items={navigation} />
+            </div>
           </div>
-          <div className="hidden sm:flex items-center space-x-4">
-            <Socials socialLinks={socialLinks} />
+          <div className="hidden md:flex items-center space-x-4">
+            <div className="hidden lg:block">
+              <Socials socialLinks={socialLinks} />
+            </div>
             <ThemeToggle />
           </div>
           {/* Mobile Menu Button */}
-          <div className="sm:hidden flex items-center">
+          <div className="md:hidden flex items-center">
+            <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-[var(--secondary-link-color)] hover:text-[var(--link-hover)] hover:bg-[var(--toggle-hover)]"
@@ -47,14 +55,12 @@ export default function Menu() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="sm:hidden bg-[var(--navbar-bg)]">
-          <div className="pt-2 pb-3 space-y-1">
-            <MobileMenu items={navigation} />
+        <div className="md:hidden bg-[var(--card)] fixed inset-0 top-12 overflow-y-auto">
+          <div className="pt-2 px-8 pb-3 space-y-1">
+            <MobileMenu items={navigation} onLinkClick={handleLinkClick} />
           </div>
-            <Socials socialLinks={socialLinks} />
-            <ThemeToggle />
+          <Socials socialLinks={socialLinks} />
         </div>
-        
       )}
     </nav>
   )
