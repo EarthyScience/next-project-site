@@ -11,6 +11,9 @@ import { socialLinks } from '@/utils/socials'
 
 export default function Menu() {
   const [isOpen, setIsOpen] = useState(false)
+  const handleLinkClick = () => {
+      setIsOpen(false)
+    }
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-[var(--navbar-bg)] border-b border-[var(--navbar-border)] z-50">
@@ -52,13 +55,12 @@ export default function Menu() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-[var(--navbar-bg)]">
-          <div className="pt-2 pb-3 space-y-1">
-            <MobileMenu items={navigation} />
+        <div className="md:hidden bg-[var(--card)] fixed inset-0 top-12 overflow-y-auto">
+          <div className="pt-2 px-8 pb-3 space-y-1">
+            <MobileMenu items={navigation} onLinkClick={handleLinkClick} />
           </div>
-            <Socials socialLinks={socialLinks} />
+          <Socials socialLinks={socialLinks} />
         </div>
-        
       )}
     </nav>
   )
