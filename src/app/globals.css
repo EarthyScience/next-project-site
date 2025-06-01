@@ -151,7 +151,7 @@ p {
 
 code {
   color: var(--sh-identifier);
-  padding: 0.2em 0.4em; /* Add some padding */
+  padding: 0.1em 0.4em; /* Add some padding */
   border-radius: 4px; /* Rounded corners */
   font-family: monospace; /* Use a monospace font */
   font-size: 0.95em;
@@ -160,7 +160,7 @@ code {
 pre {
   background-color: #282c34; /* Dark background for full code block */
   color: #ffffff; /* Default text color */
-  padding: 1em; /* Add padding inside the block */
+  padding: 0.2em 0.25em; /* Add padding inside the block */
   border-radius: 8px; /* Smooth rounded edges */
   overflow-x: auto; /* Handle horizontal overflow for long lines */
 }
