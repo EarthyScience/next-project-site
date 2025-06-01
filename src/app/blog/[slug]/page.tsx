@@ -13,9 +13,7 @@ export async function generateStaticParams() {
 }
 
 interface BlogParams {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }
 
 export default async function Blog({ params }: BlogParams) {
