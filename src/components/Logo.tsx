@@ -9,11 +9,11 @@ interface LogoProps {
 
 const LogoProject = ({ icon = '', title = '' }: LogoProps) => {
   return (
-    <div className="flex-shrink-0 flex items-center">
+    <div className="flex-shrink-0 flex items-center mr-4">
         <Link href="/">
             <Image src={icon} alt={title} width={32} height={32} className="mr-4"/>
         </Link>
-        <Link href="/" className="text-xl font-bold text-[var(--link-color)] hover:text-[var(--link-hover)]">
+        <Link href="/" className="font-bold text-[var(--link-color)] hover:text-[var(--link-hover)]">
             {title}
         </Link>
     </div>

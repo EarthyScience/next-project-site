@@ -1,65 +1,111 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
+import * as React from "react"
+import Link from "next/link"
+import { cn } from "@/lib/utils"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+import { Separator } from "@/components/ui/separator"
 
 type MenuItem = {
-  link?: string;
-  text: string;
-  items?: MenuItem[];
-};
+  text: string
+  link?: string
+  description?: string
+  items?: MenuItem[]
+  isHome?: boolean
+  name?: string
+}
 
 type MobileMenuProps = {
-  items: MenuItem[];
-};
+  items: MenuItem[]
+  onLinkClick?: () => void
+}
 
-const MobileMenu = ({ items }: MobileMenuProps) => {
-  const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(null);
-
-  const handleMobileClick = (text: string) => {
-    setOpenMobileSubmenu((prev) => (prev === text ? null : text));
-  };
-
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a"> & { onLinkClick?: () => void }
+>(({ className, title, children, onLinkClick, ...props }, ref) => {
   return (
-    <div className="sm:hidden flex justify-center">
-      <div className="w-full max-w-xs">
-        {items.map((item) => (
-          <div key={item.text} className="relative border-b border-[var(--toggle-bg)]">
-            <div className="flex justify-between items-center px-4 py-2">
-              <button
-                className="flex justify-between items-center w-full text-sm font-medium text-[var(--secondary-link-color)] hover:bg-[var(--toggle-hover)] hover:rounded-lg mt-2 mx-2 px-4"
-                onClick={() => {
-                  if (item.link) {
-                    window.location.href = item.link;
-                  } else if (item.items) {
-                    handleMobileClick(item.text);
-                  }
-                }}
+    <Link
+      ref={ref}
+      href={props.href ?? "#"}
+      className={cn(
+        "block select-none rounded-md p-3 text-sm no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground",
+        className
+      )}
+      onClick={onLinkClick}
+      {...props}
+    >
+      <div className="font-medium text-foreground">{title}</div>
+      {children && (
+        <p className="text-sm text-muted-foreground">
+          {children}
+        </p>
+      )}
+    </Link>
+  )
+})
+ListItem.displayName = "ListItem"
+
+const MobileMenu = ({ items, onLinkClick }: MobileMenuProps) => {
+  return (
+    <div className="px-4 py-2">
+      <Accordion type="single" collapsible className="w-full">
+        {items.map((item, index) => (
+          item.items ? (
+            <AccordionItem key={item.text} value={`item-${index}`}>
+              <AccordionTrigger className="text-sm px-2 py-3">
+                {item.text}
+              </AccordionTrigger>
+              <AccordionContent>
+                <div className="flex flex-col gap-2">
+                  {item.isHome && item.description && (
+                    <Link
+                      href={item.link || '/'}
+                      onClick={onLinkClick}
+                      className="mb-4 rounded-lg bg-muted p-4 hover:bg-accent hover:text-accent-foreground"
+                    >
+                      <h3 className="mb-2 text-sm font-medium">
+                        {item.name || item.text}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {item.description}
+                      </p>
+                    </Link>
+                  )}
+                  {item.items.map((subItem) => (
+                    <ListItem
+                      key={subItem.text}
+                      href={subItem.link || '#'}
+                      title={subItem.text}
+                      onLinkClick={onLinkClick}
+                    >
+                      {subItem.description}
+                    </ListItem>
+                  ))}
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          ) : (
+            <div key={item.text} className="py-1">
+              <Link
+                href={item.link || '#'}
+                className="block rounded-md px-2 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground"
+                onClick={onLinkClick}
               >
-                <span>{item.text}</span>
-                {item.items && (
-                  <span className="ml-2">{openMobileSubmenu === item.text ? '-' : '+'}</span>
-                )}
-              </button>
-            </div>
-
-            {item.items && openMobileSubmenu === item.text && (
-              <div className="pl-8">
-                {item.items.map((subItem) => (
-                  <Link
-                    key={subItem.text}
-                    href={subItem.link || '#'}
-                    className="block px-4 py-2 text-sm text-[var(--secondary-link-color)] hover:bg-[var(--navbar-border)]"
-                    role="menuitem"
-                  >
-                    {subItem.text}
-                  </Link>
-                ))}
+                {item.text}
+              </Link>
+              <div className="pt-1">
+                <Separator />
               </div>
-            )}
-          </div>
+            </div>
+          )
         ))}
-      </div>
+      </Accordion>
     </div>
-  );
-};
-
-export default MobileMenu;
+  )
+}
+export default MobileMenu
