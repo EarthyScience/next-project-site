@@ -1,12 +1,26 @@
 {
   "name": "next-project-site",
+  "description": "A Next js template to start your new project's website",
+  "author": {
+    "name": "Lazaro Alonso",
+    "email": "lazarus.alon@gmail.com",
+    "url": "https://lazarusa.github.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EarthyScience/next-project-site.git"
+  },
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.8.1",
   "scripts": {
+    "prChecks": "pnpm lint && pnpm buildRepo",
     "dev": "next dev --turbopack",
+    "buildRepo": "pnpm rmBuild && pnpm build",
+    "rmBuild": "pnpm -r exec rm -rf out",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint --max-warnings 30"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
