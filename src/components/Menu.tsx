@@ -17,7 +17,7 @@ export default function Menu() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-[var(--navbar-bg)] border-b border-[var(--navbar-border)] z-50">
-      <div className="max-w-[1440px] px-2 md:px-8 py-1">
+      <div className="max-w-[1440px] mx-auto px-2 md:px-8 py-1">
         <div className="flex justify-between h-12">
           <div className="flex">
             <LogoProject icon="/logo.png" title={navigation[0]?.name || ''} />
