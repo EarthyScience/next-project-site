@@ -2,14 +2,14 @@
 import ContentSplitSection from '@/components/ContentSplitSection';
 import Image from 'next/image';
 import SharedContent from './SharedContent.mdx'
-
+import { withBasePath } from '@/lib/utils';
 
 <ContentSplitSection
     title="Elevate Your Project" 
     subtitle="Our template helps you reach new heights with innovative solutions"
     media={
         <Image 
-          src="/logo.png" 
+          src={withBasePath("/logo.png")}
           alt="A futuristic concept" 
           width={100} 
           height={100} 

@@ -1,11 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 import { FundingProps, LogoItem } from './FooterTypes';
+import { withBasePath } from '@/lib/utils';
+
 
 const Logo = ({ logo }: { logo: LogoItem }) => {
   const image = (
     <Image 
-      src={logo.src} 
+      src={withBasePath(logo.src)} 
       alt={logo.alt} 
       width={logo.width}
       height={logo.height}
