@@ -2,6 +2,7 @@ import * as React from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
+import { withBasePath } from '@/lib/utils';
 
 import {
   NavigationMenu,
@@ -73,7 +74,7 @@ const DesktopMenu = ({ items }: NavigationProps) => {
                             href={item.link || '/'}
                           >
                             <div className="mb-4 text-lg text-foreground">
-                               <Image src="/logo.png" alt="logo" width={64} height={64} className="mr-4"/>
+                               <Image src={withBasePath("/logo.png")} alt="logo" width={64} height={64} className="mr-4"/>
                             </div>
                             <div className="mb-2 text-lg font-medium var(--accent-1)">
                               {item.name}
