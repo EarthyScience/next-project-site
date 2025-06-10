@@ -2,6 +2,8 @@
 @import "tw-animate-css";
 
 :root {
+  --code-bg: #f4f4f5; /* light gray */
+  --code-fg: #111827; /* dark text */
   /* Base theme variables */
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -63,6 +65,8 @@
 }
 
 [data-theme='dark'] {
+  --code-bg: #282c34;  /* dark code background */
+  --code-fg: #f3f4f6;
   /* Dark theme base colors */
   --background: rgb(26, 26, 26);
   --foreground: rgb(238, 238, 238);
@@ -150,6 +154,7 @@ p {
 }
 
 code {
+  background-color: var(--code-bg);
   color: var(--sh-identifier);
   padding: 0.1em 0.4em; /* Add some padding */
   border-radius: 4px; /* Rounded corners */
@@ -158,8 +163,9 @@ code {
 }
 
 pre {
-  background-color: #282c34; /* Dark background for full code block */
-  color: #ffffff; /* Default text color */
+  background-color: var(--code-bg);
+  color: var(--code-fg);
+  /* color: #ffffff; */
   padding: 0.2em 0.25em; /* Add padding inside the block */
   border-radius: 8px; /* Smooth rounded edges */
   overflow-x: auto; /* Handle horizontal overflow for long lines */
